@@ -39,7 +39,7 @@ class MarsRoverSpec extends ObjectBehavior
         $direction = Direction::fromDirection('W');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['f']);
-        $this->currentPosition()->x()->shouldReturn(-1);
+        $this->currentPosition()->x()->shouldReturn(10);
         $this->currentPosition()->y()->shouldReturn(0);
     }
 
@@ -50,7 +50,7 @@ class MarsRoverSpec extends ObjectBehavior
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['f']);
         $this->currentPosition()->x()->shouldReturn(0);
-        $this->currentPosition()->y()->shouldReturn(-1);
+        $this->currentPosition()->y()->shouldReturn(10);
     }
 
     function it_should_move_forward_from_east()
@@ -70,7 +70,7 @@ class MarsRoverSpec extends ObjectBehavior
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['b']);
         $this->currentPosition()->x()->shouldReturn(0);
-        $this->currentPosition()->y()->shouldReturn(-1);
+        $this->currentPosition()->y()->shouldReturn(10);
     }
 
     function it_should_move_backward_from_west()
@@ -99,7 +99,7 @@ class MarsRoverSpec extends ObjectBehavior
         $direction = Direction::fromDirection('E');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['b']);
-        $this->currentPosition()->x()->shouldReturn(-1);
+        $this->currentPosition()->x()->shouldReturn(10);
         $this->currentPosition()->y()->shouldReturn(0);
     }
 
@@ -109,7 +109,7 @@ class MarsRoverSpec extends ObjectBehavior
         $direction = Direction::fromDirection('N');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['l']);
-        $this->currentPosition()->x()->shouldReturn(-1);
+        $this->currentPosition()->x()->shouldReturn(10);
         $this->currentPosition()->y()->shouldReturn(0);
     }
 
@@ -120,7 +120,7 @@ class MarsRoverSpec extends ObjectBehavior
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['l']);
         $this->currentPosition()->x()->shouldReturn(0);
-        $this->currentPosition()->y()->shouldReturn(-1);
+        $this->currentPosition()->y()->shouldReturn(10);
     }
 
     function it_should_move_left_from_south()
@@ -169,7 +169,7 @@ class MarsRoverSpec extends ObjectBehavior
         $direction = Direction::fromDirection('S');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['r']);
-        $this->currentPosition()->x()->shouldReturn(-1);
+        $this->currentPosition()->x()->shouldReturn(10);
         $this->currentPosition()->y()->shouldReturn(0);
     }
 
@@ -180,6 +180,6 @@ class MarsRoverSpec extends ObjectBehavior
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['r']);
         $this->currentPosition()->x()->shouldReturn(0);
-        $this->currentPosition()->y()->shouldReturn(-1);
+        $this->currentPosition()->y()->shouldReturn(10);
     }
 }

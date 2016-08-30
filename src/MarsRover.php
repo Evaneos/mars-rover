@@ -28,24 +28,24 @@ class MarsRover
                         case 'N':
                             $this->currentPosition = Position::fromXAndY(
                                 $this->currentPosition->x(),
-                                $this->currentPosition->y() + 1
+                                $this->currentPosition->y() === Position::MAX_Y ? 0 : $this->currentPosition->y() + 1
                             );
                             break;
                         case 'W':
                             $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() - 1,
+                                $this->currentPosition->x() === 0 ? Position::MAX_X : $this->currentPosition->x() - 1,
                                 $this->currentPosition->y()
                             );
                             break;
                         case 'S':
                             $this->currentPosition = Position::fromXAndY(
                                 $this->currentPosition->x(),
-                                $this->currentPosition->y() - 1
+                                $this->currentPosition->y() === 0 ? Position::MAX_Y : $this->currentPosition->y() - 1
                             );
                             break;
                         case 'E':
                             $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() + 1,
+                                $this->currentPosition->x() === Position::MAX_X ? 0 : $this->currentPosition->x() + 1,
                                 $this->currentPosition->y()
                             );
                             break;
@@ -56,24 +56,24 @@ class MarsRover
                         case 'N':
                             $this->currentPosition = Position::fromXAndY(
                                 $this->currentPosition->x(),
-                                $this->currentPosition->y() - 1
+                                $this->currentPosition->y() === 0 ? Position::MAX_Y : $this->currentPosition->y() - 1
                             );
                             break;
                         case 'W':
                             $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() + 1,
+                                $this->currentPosition->x() === Position::MAX_X ? 0 : $this->currentPosition->x() + 1,
                                 $this->currentPosition->y()
                             );
                             break;
                         case 'S':
                             $this->currentPosition = Position::fromXAndY(
                                 $this->currentPosition->x(),
-                                $this->currentPosition->y() + 1
+                                $this->currentPosition->y() === Position::MAX_Y ? 0 : $this->currentPosition->y() + 1
                             );
                             break;
                         case 'E':
                             $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() - 1,
+                                $this->currentPosition->x() === 0 ? Position::MAX_X : $this->currentPosition->x() - 1,
                                 $this->currentPosition->y()
                             );
                             break;
@@ -83,26 +83,26 @@ class MarsRover
                     switch ($this->direction->direction()) {
                         case 'N':
                             $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() - 1,
+                                $this->currentPosition->x() === 0 ? Position::MAX_X : $this->currentPosition->x() - 1,
                                 $this->currentPosition->y()
                             );
                             break;
                         case 'W':
                             $this->currentPosition = Position::fromXAndY(
                                 $this->currentPosition->x(),
-                                $this->currentPosition->y() - 1
+                                $this->currentPosition->y() === 0 ? Position::MAX_Y : $this->currentPosition->y() - 1
                             );
                             break;
                         case 'S':
                             $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() + 1,
+                                $this->currentPosition->x() === Position::MAX_X ? 0 : $this->currentPosition->x() + 1,
                                 $this->currentPosition->y()
                             );
                             break;
                         case 'E':
                             $this->currentPosition = Position::fromXAndY(
                                 $this->currentPosition->x(),
-                                $this->currentPosition->y() + 1
+                                $this->currentPosition->y() === Position::MAX_Y ? 0 : $this->currentPosition->y() + 1
                             );
                             break;
                     }
@@ -111,26 +111,26 @@ class MarsRover
                     switch ($this->direction->direction()) {
                         case 'N':
                             $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() + 1,
+                                $this->currentPosition->x() === Position::MAX_X ? 0 : $this->currentPosition->x() + 1,
                                 $this->currentPosition->y()
                             );
                             break;
                         case 'W':
                             $this->currentPosition = Position::fromXAndY(
                                 $this->currentPosition->x(),
-                                $this->currentPosition->y() + 1
+                                $this->currentPosition->y() === Position::MAX_Y ? 0 : $this->currentPosition->y() + 1
                             );
                             break;
                         case 'S':
                             $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() - 1,
+                                $this->currentPosition->x() === 0 ? Position::MAX_X : $this->currentPosition->x() - 1,
                                 $this->currentPosition->y()
                             );
                             break;
                         case 'E':
                             $this->currentPosition = Position::fromXAndY(
                                 $this->currentPosition->x(),
-                                $this->currentPosition->y() - 1
+                                $this->currentPosition->y() === 0 ? Position::MAX_Y : $this->currentPosition->y() - 1
                             );
                             break;
                     }

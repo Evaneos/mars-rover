@@ -2,14 +2,26 @@
 
 namespace MarsRover;
 
+use Assert\Assertion;
+
 final class Position
 {
+    const MAX_X = 10;
+    const MAX_Y = 10;
+
     private $x;
 
     private $y;
 
     private function __construct($x, $y)
     {
+        Assertion::integer($x);
+        Assertion::greaterThan($x, -1);
+        Assertion::lessOrEqualThan($x, self::MAX_X);
+        Assertion::integer($y);
+        Assertion::greaterThan($y, -1);
+        Assertion::lessOrEqualThan($y, self::MAX_Y);
+
         $this->x = $x;
         $this->y = $y;
     }
