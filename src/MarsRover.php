@@ -8,6 +8,8 @@ class MarsRover
 
     private $direction;
 
+    private $obstacles = [];
+
     private function __construct(Position $currentPosition, Direction $direction)
     {
         $this->currentPosition = $currentPosition;
@@ -111,6 +113,9 @@ class MarsRover
                             break;
                     }
                     break;
+                case 'o':
+                    $this->report();
+                    return;
             }
         }
     }
@@ -123,5 +128,15 @@ class MarsRover
     public function direction()
     {
         return $this->direction;
+    }
+
+    public function report()
+    {
+        $this->obstacles[] = $this->currentPosition;
+    }
+
+    public function getObstacleReport()
+    {
+        return $this->obstacles;
     }
 }
