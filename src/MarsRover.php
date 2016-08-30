@@ -21,6 +21,38 @@ class MarsRover
         return new self($currentPosition, $direction);
     }
 
+    private function moveUp()
+    {
+        $this->currentPosition = Position::fromXAndY(
+            $this->currentPosition->x(),
+            $this->currentPosition->y() === Position::MAX_Y ? 0 : $this->currentPosition->y() + 1
+        );
+    }
+
+    private function moveLeft()
+    {
+        $this->currentPosition = Position::fromXAndY(
+            $this->currentPosition->x() === 0 ? Position::MAX_X : $this->currentPosition->x() - 1,
+            $this->currentPosition->y()
+        );
+    }
+
+    private function moveDown()
+    {
+        $this->currentPosition = Position::fromXAndY(
+            $this->currentPosition->x(),
+            $this->currentPosition->y() === 0 ? Position::MAX_Y : $this->currentPosition->y() - 1
+        );
+    }
+
+    private function moveRight()
+    {
+        $this->currentPosition = Position::fromXAndY(
+            $this->currentPosition->x() === Position::MAX_X ? 0 : $this->currentPosition->x() + 1,
+            $this->currentPosition->y()
+        );
+    }
+
     public function execute($commands)
     {
         foreach ($commands as $command) {
@@ -28,56 +60,32 @@ class MarsRover
                 case 'f':
                     switch ($this->direction->direction()) {
                         case 'N':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x(),
-                                $this->currentPosition->y() === Position::MAX_Y ? 0 : $this->currentPosition->y() + 1
-                            );
+                            $this->moveUp();
                             break;
                         case 'W':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() === 0 ? Position::MAX_X : $this->currentPosition->x() - 1,
-                                $this->currentPosition->y()
-                            );
+                            $this->moveLeft();
                             break;
                         case 'S':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x(),
-                                $this->currentPosition->y() === 0 ? Position::MAX_Y : $this->currentPosition->y() - 1
-                            );
+                            $this->moveDown();
                             break;
                         case 'E':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() === Position::MAX_X ? 0 : $this->currentPosition->x() + 1,
-                                $this->currentPosition->y()
-                            );
+                            $this->moveRight();
                             break;
                     }
                     break;
                 case 'b':
                     switch ($this->direction->direction()) {
                         case 'N':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x(),
-                                $this->currentPosition->y() === 0 ? Position::MAX_Y : $this->currentPosition->y() - 1
-                            );
+                            $this->moveDown();
                             break;
                         case 'W':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() === Position::MAX_X ? 0 : $this->currentPosition->x() + 1,
-                                $this->currentPosition->y()
-                            );
+                            $this->moveRight();
                             break;
                         case 'S':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x(),
-                                $this->currentPosition->y() === Position::MAX_Y ? 0 : $this->currentPosition->y() + 1
-                            );
+                            $this->moveUp();
                             break;
                         case 'E':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() === 0 ? Position::MAX_X : $this->currentPosition->x() - 1,
-                                $this->currentPosition->y()
-                            );
+                            $this->moveLeft();
                             break;
                     }
                     break;

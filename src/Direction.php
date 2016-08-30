@@ -2,7 +2,7 @@
 
 namespace MarsRover;
 
-class Direction
+final class Direction
 {
     private $direction;
 
