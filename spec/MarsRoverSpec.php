@@ -190,4 +190,16 @@ class MarsRoverSpec extends ObjectBehavior
         $this->currentPosition()->y()->shouldReturn(0);
         $this->direction()->direction()->shouldReturn('S');
     }
+
+    function it_should_stop_on_obstacle_and_report()
+    {
+        $initialPosition = Position::fromXAndY(0,0);
+        $direction = Direction::fromDirection('N');
+        $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
+        $this->execute(['o', 'f']);
+        $this->currentPosition()->x()->shouldReturn(0);
+        $this->currentPosition()->y()->shouldReturn(0);
+        $this->direction()->direction()->shouldReturn('N');
+        $this->getObstacleReport()->shouldReturn([$initialPosition]);
+    }
 }
