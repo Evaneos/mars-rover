@@ -17,4 +17,9 @@ class DirectionSpec extends ObjectBehavior
     {
         $this->shouldHaveType(Direction::class);
     }
+
+    function it_should_get_direction()
+    {
+        $this->direction()->shouldReturn('N');
+    }
 }

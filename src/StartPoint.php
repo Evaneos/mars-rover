@@ -18,4 +18,14 @@ final class StartPoint
     {
         return new self($x, $y);
     }
+
+    public function x()
+    {
+        return $this->x;
+    }
+
+    public function y()
+    {
+        return $this->y;
+    }
 }

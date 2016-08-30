@@ -17,4 +17,14 @@ class StartPointSpec extends ObjectBehavior
     {
         $this->shouldHaveType(StartPoint::class);
     }
+
+    function it_should_get_x()
+    {
+        $this->x()->shouldReturn(0);
+    }
+
+    function it_should_get_y()
+    {
+        $this->y()->shouldReturn(0);
+    }
 }

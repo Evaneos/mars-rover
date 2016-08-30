@@ -15,4 +15,9 @@ class Direction
     {
         return new self($direction);
     }
+
+    public function direction()
+    {
+        return $this->direction;
+    }
 }
