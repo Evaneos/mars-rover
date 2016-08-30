@@ -4,9 +4,9 @@ namespace spec\MarsRover;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use MarsRover\StartPoint;
+use MarsRover\Position;
 
-class StartPointSpec extends ObjectBehavior
+class PositionSpec extends ObjectBehavior
 {
     function let()
     {
@@ -15,7 +15,7 @@ class StartPointSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(StartPoint::class);
+        $this->shouldHaveType(Position::class);
     }
 
     function it_should_get_x()

@@ -4,19 +4,19 @@ namespace MarsRover;
 
 class MarsRover
 {
-    private $startPoint;
+    private $currentPosition;
 
     private $direction;
 
-    private function __construct(StartPoint $startPoint, Direction $direction)
+    private function __construct(Position $currentPosition, Direction $direction)
     {
-        $this->startPoint = $startPoint;
+        $this->currentPosition = $currentPosition;
         $this->direction = $direction;
     }
 
-    public static function withStartPointAndDirection(StartPoint $startPoint, Direction $direction)
+    public static function withInitialPositionAndDirection(Position $currentPosition, Direction $direction)
     {
-        return new self($startPoint, $direction);
+        return new self($currentPosition, $direction);
     }
 
     public function execute($commands)
@@ -26,27 +26,27 @@ class MarsRover
                 case 'f':
                     switch ($this->direction->direction()) {
                         case 'N':
-                            $this->startPoint = StartPoint::fromXAndY(
-                                $this->startPoint->x(),
-                                $this->startPoint->y() + 1
+                            $this->currentPosition = Position::fromXAndY(
+                                $this->currentPosition->x(),
+                                $this->currentPosition->y() + 1
                             );
                             break;
                         case 'W':
-                            $this->startPoint = StartPoint::fromXAndY(
-                                $this->startPoint->x() - 1,
-                                $this->startPoint->y()
+                            $this->currentPosition = Position::fromXAndY(
+                                $this->currentPosition->x() - 1,
+                                $this->currentPosition->y()
                             );
                             break;
                         case 'S':
-                            $this->startPoint = StartPoint::fromXAndY(
-                                $this->startPoint->x(),
-                                $this->startPoint->y() - 1
+                            $this->currentPosition = Position::fromXAndY(
+                                $this->currentPosition->x(),
+                                $this->currentPosition->y() - 1
                             );
                             break;
                         case 'E':
-                            $this->startPoint = StartPoint::fromXAndY(
-                                $this->startPoint->x() + 1,
-                                $this->startPoint->y()
+                            $this->currentPosition = Position::fromXAndY(
+                                $this->currentPosition->x() + 1,
+                                $this->currentPosition->y()
                             );
                             break;
                     }
@@ -55,8 +55,8 @@ class MarsRover
         }
     }
 
-    public function startPoint()
+    public function currentPosition()
     {
-        return $this->startPoint;
+        return $this->currentPosition;
     }
 }

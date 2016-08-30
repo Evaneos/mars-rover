@@ -5,7 +5,7 @@ namespace spec\MarsRover;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use MarsRover\MarsRover;
-use MarsRover\StartPoint;
+use MarsRover\Position;
 use MarsRover\Direction;
 use MarsRover\Command;
 
@@ -13,9 +13,9 @@ class MarsRoverSpec extends ObjectBehavior
 {
     function let()
     {
-        $startPoint = StartPoint::fromXAndY(0,0);
+        $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('N');
-        $this->beConstructedWithStartPointAndDirection($startPoint, $direction);
+        $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
     }
 
     function it_is_initializable()
@@ -25,41 +25,41 @@ class MarsRoverSpec extends ObjectBehavior
 
     function it_should_move_forward_from_north()
     {
-        $startPoint = StartPoint::fromXAndY(0,0);
+        $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('N');
-        $this->beConstructedWithStartPointAndDirection($startPoint, $direction);
+        $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['f']);
-        $this->startPoint()->x()->shouldReturn(0);
-        $this->startPoint()->y()->shouldReturn(1);
+        $this->currentPosition()->x()->shouldReturn(0);
+        $this->currentPosition()->y()->shouldReturn(1);
     }
 
     function it_should_move_forward_from_west()
     {
-        $startPoint = StartPoint::fromXAndY(0,0);
+        $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('W');
-        $this->beConstructedWithStartPointAndDirection($startPoint, $direction);
+        $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['f']);
-        $this->startPoint()->x()->shouldReturn(-1);
-        $this->startPoint()->y()->shouldReturn(0);
+        $this->currentPosition()->x()->shouldReturn(-1);
+        $this->currentPosition()->y()->shouldReturn(0);
     }
 
     function it_should_move_forward_from_south()
     {
-        $startPoint = StartPoint::fromXAndY(0,0);
+        $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('S');
-        $this->beConstructedWithStartPointAndDirection($startPoint, $direction);
+        $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['f']);
-        $this->startPoint()->x()->shouldReturn(0);
-        $this->startPoint()->y()->shouldReturn(-1);
+        $this->currentPosition()->x()->shouldReturn(0);
+        $this->currentPosition()->y()->shouldReturn(-1);
     }
 
     function it_should_move_forward_from_east()
     {
-        $startPoint = StartPoint::fromXAndY(0,0);
+        $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('E');
-        $this->beConstructedWithStartPointAndDirection($startPoint, $direction);
+        $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['f']);
-        $this->startPoint()->x()->shouldReturn(1);
-        $this->startPoint()->y()->shouldReturn(0);
+        $this->currentPosition()->x()->shouldReturn(1);
+        $this->currentPosition()->y()->shouldReturn(0);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace MarsRover;
 
-final class StartPoint
+final class Position
 {
     private $x;
 
