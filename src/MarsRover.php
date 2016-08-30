@@ -51,6 +51,34 @@ class MarsRover
                             break;
                     }
                     break;
+                case 'b':
+                    switch ($this->direction->direction()) {
+                        case 'N':
+                            $this->currentPosition = Position::fromXAndY(
+                                $this->currentPosition->x(),
+                                $this->currentPosition->y() - 1
+                            );
+                            break;
+                        case 'W':
+                            $this->currentPosition = Position::fromXAndY(
+                                $this->currentPosition->x() + 1,
+                                $this->currentPosition->y()
+                            );
+                            break;
+                        case 'S':
+                            $this->currentPosition = Position::fromXAndY(
+                                $this->currentPosition->x(),
+                                $this->currentPosition->y() + 1
+                            );
+                            break;
+                        case 'E':
+                            $this->currentPosition = Position::fromXAndY(
+                                $this->currentPosition->x() - 1,
+                                $this->currentPosition->y()
+                            );
+                            break;
+                    }
+                    break;
             }
         }
     }
