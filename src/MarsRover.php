@@ -82,56 +82,32 @@ class MarsRover
                 case 'l':
                     switch ($this->direction->direction()) {
                         case 'N':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() === 0 ? Position::MAX_X : $this->currentPosition->x() - 1,
-                                $this->currentPosition->y()
-                            );
+                            $this->direction = Direction::fromDirection('W');
                             break;
                         case 'W':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x(),
-                                $this->currentPosition->y() === 0 ? Position::MAX_Y : $this->currentPosition->y() - 1
-                            );
+                            $this->direction = Direction::fromDirection('S');
                             break;
                         case 'S':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() === Position::MAX_X ? 0 : $this->currentPosition->x() + 1,
-                                $this->currentPosition->y()
-                            );
+                            $this->direction = Direction::fromDirection('E');
                             break;
                         case 'E':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x(),
-                                $this->currentPosition->y() === Position::MAX_Y ? 0 : $this->currentPosition->y() + 1
-                            );
+                            $this->direction = Direction::fromDirection('N');
                             break;
                     }
                     break;
                 case 'r':
                     switch ($this->direction->direction()) {
                         case 'N':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() === Position::MAX_X ? 0 : $this->currentPosition->x() + 1,
-                                $this->currentPosition->y()
-                            );
+                            $this->direction = Direction::fromDirection('E');
                             break;
                         case 'W':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x(),
-                                $this->currentPosition->y() === Position::MAX_Y ? 0 : $this->currentPosition->y() + 1
-                            );
+                            $this->direction = Direction::fromDirection('N');
                             break;
                         case 'S':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x() === 0 ? Position::MAX_X : $this->currentPosition->x() - 1,
-                                $this->currentPosition->y()
-                            );
+                            $this->direction = Direction::fromDirection('W');
                             break;
                         case 'E':
-                            $this->currentPosition = Position::fromXAndY(
-                                $this->currentPosition->x(),
-                                $this->currentPosition->y() === 0 ? Position::MAX_Y : $this->currentPosition->y() - 1
-                            );
+                            $this->direction = Direction::fromDirection('S');
                             break;
                     }
                     break;
@@ -142,5 +118,10 @@ class MarsRover
     public function currentPosition()
     {
         return $this->currentPosition;
+    }
+
+    public function direction()
+    {
+        return $this->direction;
     }
 }
