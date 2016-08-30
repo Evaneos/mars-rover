@@ -142,4 +142,44 @@ class MarsRoverSpec extends ObjectBehavior
         $this->currentPosition()->x()->shouldReturn(0);
         $this->currentPosition()->y()->shouldReturn(1);
     }
+
+    function it_should_move_right_from_north()
+    {
+        $initialPosition = Position::fromXAndY(0,0);
+        $direction = Direction::fromDirection('N');
+        $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
+        $this->execute(['r']);
+        $this->currentPosition()->x()->shouldReturn(1);
+        $this->currentPosition()->y()->shouldReturn(0);
+    }
+
+    function it_should_move_right_from_west()
+    {
+        $initialPosition = Position::fromXAndY(0,0);
+        $direction = Direction::fromDirection('W');
+        $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
+        $this->execute(['r']);
+        $this->currentPosition()->x()->shouldReturn(0);
+        $this->currentPosition()->y()->shouldReturn(1);
+    }
+
+    function it_should_move_right_from_south()
+    {
+        $initialPosition = Position::fromXAndY(0,0);
+        $direction = Direction::fromDirection('S');
+        $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
+        $this->execute(['r']);
+        $this->currentPosition()->x()->shouldReturn(-1);
+        $this->currentPosition()->y()->shouldReturn(0);
+    }
+
+    function it_should_move_right_from_east()
+    {
+        $initialPosition = Position::fromXAndY(0,0);
+        $direction = Direction::fromDirection('E');
+        $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
+        $this->execute(['r']);
+        $this->currentPosition()->x()->shouldReturn(0);
+        $this->currentPosition()->y()->shouldReturn(-1);
+    }
 }
