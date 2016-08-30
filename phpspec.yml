@@ -1,0 +1,4 @@
+suites:
+    mars_rover:
+        namespace: MarsRover
+        psr4_prefix: MarsRover

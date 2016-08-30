@@ -1,0 +1,13 @@
+{
+    "name": "quentin/mars_rover",
+    "authors": [
+        {
+            "name": "Quentin",
+            "email": "quentin.pautrat@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpspec/phpspec": "^2.5"
+    }
+}
