@@ -9,5 +9,10 @@
     "require": {},
     "require-dev": {
         "phpspec/phpspec": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarsRover\\": "src"
+        }
     }
 }
