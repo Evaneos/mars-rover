@@ -103,83 +103,91 @@ class MarsRoverSpec extends ObjectBehavior
         $this->currentPosition()->y()->shouldReturn(0);
     }
 
-    function it_should_move_left_from_north()
+    function it_should_turn_left_from_north()
     {
         $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('N');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['l']);
-        $this->currentPosition()->x()->shouldReturn(10);
+        $this->currentPosition()->x()->shouldReturn(0);
         $this->currentPosition()->y()->shouldReturn(0);
+        $this->direction()->direction()->shouldReturn('W');
     }
 
-    function it_should_move_left_from_west()
+    function it_should_turn_left_from_west()
     {
         $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('W');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['l']);
         $this->currentPosition()->x()->shouldReturn(0);
-        $this->currentPosition()->y()->shouldReturn(10);
+        $this->currentPosition()->y()->shouldReturn(0);
+        $this->direction()->direction()->shouldReturn('S');
     }
 
-    function it_should_move_left_from_south()
+    function it_should_turn_left_from_south()
     {
         $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('S');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['l']);
-        $this->currentPosition()->x()->shouldReturn(1);
+        $this->currentPosition()->x()->shouldReturn(0);
         $this->currentPosition()->y()->shouldReturn(0);
+        $this->direction()->direction()->shouldReturn('E');
     }
 
-    function it_should_move_left_from_east()
+    function it_should_turn_left_from_east()
     {
         $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('E');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['l']);
         $this->currentPosition()->x()->shouldReturn(0);
-        $this->currentPosition()->y()->shouldReturn(1);
+        $this->currentPosition()->y()->shouldReturn(0);
+        $this->direction()->direction()->shouldReturn('N');
     }
 
-    function it_should_move_right_from_north()
+    function it_should_turn_right_from_north()
     {
         $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('N');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['r']);
-        $this->currentPosition()->x()->shouldReturn(1);
+        $this->currentPosition()->x()->shouldReturn(0);
         $this->currentPosition()->y()->shouldReturn(0);
+        $this->direction()->direction()->shouldReturn('E');
     }
 
-    function it_should_move_right_from_west()
+    function it_should_turn_right_from_west()
     {
         $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('W');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['r']);
         $this->currentPosition()->x()->shouldReturn(0);
-        $this->currentPosition()->y()->shouldReturn(1);
+        $this->currentPosition()->y()->shouldReturn(0);
+        $this->direction()->direction()->shouldReturn('N');
     }
 
-    function it_should_move_right_from_south()
+    function it_should_turn_right_from_south()
     {
         $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('S');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['r']);
-        $this->currentPosition()->x()->shouldReturn(10);
+        $this->currentPosition()->x()->shouldReturn(0);
         $this->currentPosition()->y()->shouldReturn(0);
+        $this->direction()->direction()->shouldReturn('W');
     }
 
-    function it_should_move_right_from_east()
+    function it_should_turn_right_from_east()
     {
         $initialPosition = Position::fromXAndY(0,0);
         $direction = Direction::fromDirection('E');
         $this->beConstructedWithInitialPositionAndDirection($initialPosition, $direction);
         $this->execute(['r']);
         $this->currentPosition()->x()->shouldReturn(0);
-        $this->currentPosition()->y()->shouldReturn(10);
+        $this->currentPosition()->y()->shouldReturn(0);
+        $this->direction()->direction()->shouldReturn('S');
     }
 }
