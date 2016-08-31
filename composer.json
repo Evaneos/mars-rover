@@ -1,0 +1,14 @@
+{
+    "name": "root/app",
+    "require": {
+        "phpunit/phpunit": "^5.5",
+        "mockery/mockery": "^0.9.5",
+        "webmozart/assert": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "MR\\": "src",
+            "tests\\MR\\": "tests"
+        }
+    }
+}
